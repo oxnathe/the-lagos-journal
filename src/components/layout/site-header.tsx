@@ -1,11 +1,12 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 const navigation = [
-  { label: "The Journal", href: "#journal" },
-  { label: "Buy Property", href: "#buy-property" },
-  { label: "Shortlets", href: "#shortlets" },
-  { label: "Locations", href: "#locations" },
-  { label: "Developers", href: "#developers" },
+  { label: "Home", href: "/" },
+  { label: "The Journal", href: "/journal" },
+  { label: "Buy Property", href: "/buy-property" },
+  { label: "Shortlets", href: "/shortlets" },
+  { label: "Locations", href: "/locations" },
+  { label: "Developers", href: "/developers" },
 ];
 
 export function SiteHeader() {
@@ -21,7 +22,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-7 xl:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-6 xl:flex">
           {navigation.map((item) => (
             <Link
               key={item.label}
@@ -35,13 +36,13 @@ export function SiteHeader() {
 
         <div className="flex shrink-0 items-center gap-3">
           <Link
-            href="#contact"
+            href="/contact"
             className="hidden text-[12px] font-semibold text-[var(--brand-navy)] transition-colors hover:text-[var(--brand-orange)] sm:block"
           >
             Get in touch
           </Link>
           <Link
-            href="#property-discovery"
+            href="/locations"
             className="inline-flex min-h-11 items-center justify-center gap-2 bg-[var(--brand-navy)] px-4 text-[11px] font-semibold tracking-wide text-white transition-all hover:bg-[var(--brand-orange)] sm:px-5"
           >
             Explore Lagos
