@@ -27,7 +27,7 @@ const locations = [
 ];
 
 function ArrowIcon() {
-  return <span aria-hidden="true" className="text-lg leading-none">↗</span>;
+  return <span aria-hidden="true" className="text-lg leading-none">{"\u2197"}</span>;
 }
 
 function SectionHeading({
@@ -183,7 +183,7 @@ export function HomePage() {
                   unoptimized
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+                 loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#101820]/90 via-[#101820]/15 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-7 text-white sm:p-10">
                   <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[var(--brand-gold)]">
@@ -211,7 +211,7 @@ export function HomePage() {
                   unoptimized
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+                 loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#101820]/90 via-[#101820]/15 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-7 text-white sm:p-10">
                   <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[var(--brand-gold)]">
@@ -259,7 +259,7 @@ export function HomePage() {
                       unoptimized
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
+                     loading="lazy" />
                     <span className="absolute left-4 top-4 flex h-8 w-8 items-center justify-center border border-white/70 bg-black/15 text-[10px] text-white backdrop-blur-sm">
                       0{index + 1}
                     </span>
@@ -286,7 +286,7 @@ export function HomePage() {
                 unoptimized
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
-              />
+               loading="lazy" />
             </div>
             <div className="flex flex-col justify-center px-6 py-16 sm:px-12 lg:px-16 xl:px-24">
               <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--brand-gold)]">
@@ -302,9 +302,9 @@ export function HomePage() {
               </p>
 
               <ul className="mt-8 space-y-4 text-sm text-[var(--brand-charcoal)]/80">
-                <li className="flex items-center gap-3"><span className="text-[var(--brand-gold)]">✦</span> Explore places by location and stay type</li>
-                <li className="flex items-center gap-3"><span className="text-[var(--brand-gold)]">✦</span> Review amenities, house rules and host information</li>
-                <li className="flex items-center gap-3"><span className="text-[var(--brand-gold)]">✦</span> Enquire directly and confirm availability with the host</li>
+                <li className="flex items-center gap-3"><span className="text-[var(--brand-gold)]">âœ¦</span> Explore places by location and stay type</li>
+                <li className="flex items-center gap-3"><span className="text-[var(--brand-gold)]">âœ¦</span> Review amenities, house rules and host information</li>
+                <li className="flex items-center gap-3"><span className="text-[var(--brand-gold)]">âœ¦</span> Enquire directly and confirm availability with the host</li>
               </ul>
 
               <Link href="#contact" className="mt-9 inline-flex min-h-14 w-fit items-center gap-6 bg-[var(--brand-orange)] px-7 text-xs font-semibold text-white transition-colors hover:bg-[var(--brand-navy)]">
@@ -387,7 +387,7 @@ export function HomePage() {
                 unoptimized
                 sizes="(max-width: 1024px) 100vw, 45vw"
                 className="object-cover"
-              />
+               loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-navy)]/45 to-transparent" />
               <p className="absolute bottom-6 left-6 font-editorial text-2xl text-white sm:bottom-9 sm:left-9 sm:text-3xl">
                 Built on vision. Shaped by place.

@@ -46,7 +46,7 @@ export function PropertyLocationHighlights() {
             href="/locations"
             className="text-xs font-semibold text-[var(--brand-orange)] transition-colors hover:text-[var(--brand-navy)]"
           >
-            Explore all locations ↗
+            Explore all locations {"\u2197"}
           </Link>
         </div>
 
@@ -64,7 +64,7 @@ export function PropertyLocationHighlights() {
                 unoptimized
                 sizes="(max-width: 640px) 100vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
+               loading="lazy" />
 
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-navy)]/90 via-[var(--brand-navy)]/10 to-transparent" />
 
@@ -84,7 +84,7 @@ export function PropertyLocationHighlights() {
                 <span className="mt-6 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.14em]">
                   Explore location
                   <span className="transition-transform group-hover:translate-x-1">
-                    →
+                    {"\u2192"}
                   </span>
                 </span>
               </div>

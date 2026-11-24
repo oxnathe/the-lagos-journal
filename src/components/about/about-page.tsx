@@ -90,7 +90,7 @@ export function AboutPage() {
                   className="inline-flex min-h-12 items-center justify-center gap-4 bg-[var(--brand-orange)] px-6 text-xs font-semibold text-white transition-colors hover:bg-white hover:text-[var(--brand-navy)]"
                 >
                   Explore properties
-                  <span aria-hidden="true">↗</span>
+                  <span aria-hidden="true">{"\u2197"}</span>
                 </Link>
 
                 <Link
@@ -209,7 +209,7 @@ export function AboutPage() {
                     className="mt-8 inline-flex w-fit items-center gap-3 border-b border-[var(--brand-gold)] pb-2 text-xs font-semibold text-[var(--brand-navy)] transition-colors hover:text-[var(--brand-orange)]"
                   >
                     {pillar.linkText}
-                    <span aria-hidden="true">↗</span>
+                    <span aria-hidden="true">{"\u2197"}</span>
                   </Link>
                 </article>
               ))}
@@ -228,7 +228,7 @@ export function AboutPage() {
                 unoptimized
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
-              />
+               loading="lazy" />
 
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-navy)]/35 to-transparent" />
             </div>
@@ -326,7 +326,7 @@ export function AboutPage() {
                 className="mt-8 inline-flex min-h-12 items-center gap-4 bg-[var(--brand-navy)] px-6 text-xs font-semibold text-white transition-colors hover:bg-[var(--brand-orange)]"
               >
                 Explore Lagos
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true">{"\u2197"}</span>
               </Link>
             </div>
 
@@ -338,7 +338,7 @@ export function AboutPage() {
                 unoptimized
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover"
-              />
+               loading="lazy" />
             </div>
           </div>
         </section>
@@ -372,7 +372,7 @@ export function AboutPage() {
                 className="inline-flex min-h-14 items-center justify-center gap-5 bg-[var(--brand-orange)] px-7 text-xs font-semibold text-white transition-colors hover:bg-[var(--brand-navy)]"
               >
                 Explore properties
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true">{"\u2197"}</span>
               </Link>
 
               <Link
@@ -380,7 +380,7 @@ export function AboutPage() {
                 className="inline-flex min-h-14 items-center justify-center gap-5 border border-[var(--brand-navy)]/20 px-7 text-xs font-semibold text-[var(--brand-navy)] transition-colors hover:border-[var(--brand-navy)] hover:bg-white"
               >
                 Get in touch
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true">{"\u2197"}</span>
               </Link>
             </div>
 

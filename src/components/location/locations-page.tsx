@@ -245,7 +245,7 @@ export function LocationsPage() {
                       fill
                       unoptimized
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
+                     loading="lazy" />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
@@ -274,7 +274,7 @@ export function LocationsPage() {
                       className="mt-6 inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--brand-orange)] transition-colors hover:text-[var(--brand-navy)]"
                     >
                       Enquire about this area
-                      <span aria-hidden="true">↗</span>
+                      <span aria-hidden="true">{"\u2197"}</span>
                     </Link>
                   </div>
                 </article>
@@ -335,7 +335,7 @@ export function LocationsPage() {
                 fill
                 unoptimized
                 className="object-cover"
-              />
+               loading="lazy" />
             </div>
 
             <div className="flex flex-col justify-center py-6 lg:pl-8">

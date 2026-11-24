@@ -311,7 +311,7 @@ export function DevelopersPage() {
                 unoptimized
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
-              />
+               loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-navy)]/45 to-transparent" />
               <p className="absolute bottom-7 left-7 text-[9px] font-semibold uppercase tracking-[0.22em] text-white">
                 Clarity · Context · Perspective
