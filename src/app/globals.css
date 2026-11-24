@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 /* ==========================================
    THE LAGOS JOURNAL — BRAND DESIGN TOKENS
@@ -555,5 +555,179 @@ video {
   .journal-nav-link:focus-visible {
     transform: none;
     translate: none;
+  }
+}
+
+/* THE LAGOS JOURNAL — RESPONSIVE HAMBURGER NAVIGATION */
+
+.journal-menu-toggle {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid rgb(176 141 87 / 35%);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background 250ms ease, border-color 250ms ease;
+}
+
+.journal-menu-toggle:hover,
+.journal-menu-toggle:focus-visible {
+  border-color: var(--brand-gold);
+  background: rgb(176 141 87 / 9%);
+}
+
+.journal-menu-toggle span {
+  display: block;
+  width: 19px;
+  height: 2px;
+  border-radius: 99px;
+  background: var(--brand-navy);
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 200ms ease;
+}
+
+.journal-menu-toggle.is-open span:first-child {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.journal-menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.journal-menu-toggle.is-open span:last-child {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.journal-mobile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 40;
+  max-height: calc(100dvh - 82px);
+  overflow-y: auto;
+  border-top: 1px solid rgb(217 208 193 / 65%);
+  border-bottom: 1px solid rgb(176 141 87 / 30%);
+  background: var(--brand-ivory);
+  padding: 12px 20px 24px;
+  box-shadow: 0 18px 35px rgb(23 35 45 / 12%);
+  animation: journal-mobile-menu-enter 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.journal-mobile-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.journal-mobile-link {
+  display: flex;
+  min-height: 53px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(217 208 193 / 55%);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.journal-mobile-link > span {
+  color: var(--brand-gold);
+  font-size: 13px;
+}
+
+.journal-mobile-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 11px;
+  padding-top: 20px;
+}
+
+.journal-mobile-explore,
+.journal-mobile-contact {
+  display: flex;
+  min-height: 49px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-align: center;
+}
+
+.journal-mobile-contact {
+  border: 1px solid var(--brand-gold);
+  background: var(--brand-navy);
+  color: var(--brand-white);
+  transition: background 250ms ease, color 250ms ease;
+}
+
+.journal-mobile-contact:hover,
+.journal-mobile-contact:focus-visible {
+  background: var(--brand-gold);
+  color: var(--brand-navy);
+}
+
+@keyframes journal-mobile-menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1279px) {
+  .journal-mobile-menu {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  .journal-mobile-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journal-menu-toggle,
+  .journal-menu-toggle span,
+  .journal-mobile-contact {
+    transition: none;
+  }
+
+  .journal-mobile-menu {
+    animation: none;
+  }
+}
+
+/* MOBILE STICKY HEADER AND DESKTOP HAMBURGER VISIBILITY */
+
+/* Keep the header visible while scrolling on mobile and tablet */
+@media (max-width: 1279px) {
+  .journal-site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+}
+
+/* Never display the hamburger on desktop screens */
+@media (min-width: 1280px) {
+  .journal-menu-toggle {
+    display: none !important;
+    visibility: hidden !important;
   }
 }
