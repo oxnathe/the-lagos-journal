@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import {
@@ -11,6 +11,7 @@ import {
 } from "next/font/google";
 
 import "./globals.css";
+import { ScrollToTop } from "@/components/layout/scroll-to-top";
 
 /* Primary editorial pairing */
 
@@ -108,6 +109,7 @@ export default function RootLayout({
       ].join(" ")}
     >
       <body className="flex min-h-screen flex-col">
+        <ScrollToTop />
         {children}
       </body>
     </html>

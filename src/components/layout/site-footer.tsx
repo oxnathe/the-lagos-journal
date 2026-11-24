@@ -1,4 +1,7 @@
+﻿"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const footerGroups = [
   {
@@ -22,12 +25,30 @@ const footerGroups = [
 ];
 
 export function SiteFooter() {
+  const pathname = usePathname();
+
+  function handleFooterNavigation(href: string) {
+    return (event: React.MouseEvent<HTMLAnchorElement>) => {
+      const currentPath = pathname.replace(/\/+$/, "") || "/";
+      const targetPath = href.replace(/\/+$/, "") || "/";
+
+      if (currentPath === targetPath) {
+        event.preventDefault();
+        window.scrollTo(0, 0);
+      }
+    };
+  }
+
   return (
     <footer className="bg-[var(--brand-navy)] text-white">
       <div className="mx-auto max-w-[1440px] px-5 pb-10 pt-16 sm:px-8 lg:px-14 lg:pt-20">
         <div className="grid gap-12 border-b border-white/15 pb-14 md:grid-cols-[1.5fr_1fr_1fr]">
           <div className="max-w-md">
-            <Link href="/" className="inline-block font-editorial text-[34px] tracking-[-0.055em] text-white">
+            <Link
+              href="/"
+              onClick={handleFooterNavigation("/")}
+              className="inline-block font-editorial text-[34px] tracking-[-0.055em] text-white"
+            >
               The Lagos Journal
             </Link>
 
@@ -52,6 +73,7 @@ export function SiteFooter() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
+                      onClick={handleFooterNavigation(link.href)}
                       className="text-sm text-white/70 transition-colors hover:text-white"
                     >
                       {link.label}

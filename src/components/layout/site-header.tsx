@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   { label: "Home", href: "/" },
@@ -9,7 +12,15 @@ const navigation = [
   { label: "Developers", href: "/developers" },
 ];
 
+function isCurrentPage(pathname: string, href: string) {
+  return href === "/"
+    ? pathname === "/"
+    : pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function SiteHeader() {
+  const pathname = usePathname();
+
   return (
     <header className="relative z-30 border-b border-[var(--brand-sand)]/60 bg-[var(--brand-ivory)]">
       <div className="mx-auto flex min-h-[82px] max-w-[1440px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-14">
@@ -23,27 +34,33 @@ export function SiteHeader() {
         </Link>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-6 xl:flex">
-          {navigation.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="text-[12px] font-medium tracking-[0.015em] text-[var(--brand-charcoal)] transition-colors hover:text-[var(--brand-orange)]"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const active = isCurrentPage(pathname, item.href);
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className="journal-nav-link text-[12px] font-medium tracking-[0.015em]"
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex shrink-0 items-center gap-3">
           <Link
             href="/contact"
-            className="hidden text-[12px] font-semibold text-[var(--brand-navy)] transition-colors hover:text-[var(--brand-orange)] sm:block"
+            aria-current={isCurrentPage(pathname, "/contact") ? "page" : undefined}
+            className="journal-nav-link hidden text-[12px] font-semibold sm:inline-flex"
           >
             Get in touch
           </Link>
           <Link
             href="/locations"
-            className="inline-flex min-h-11 items-center justify-center gap-2 bg-[var(--brand-navy)] px-4 text-[11px] font-semibold tracking-wide text-white transition-all hover:bg-[var(--brand-orange)] sm:px-5"
+            aria-current={isCurrentPage(pathname, "/locations") ? "page" : undefined}
+            className="journal-nav-action inline-flex min-h-11 items-center justify-center gap-2 px-5 text-[11px] font-semibold tracking-wide sm:px-6"
           >
             Explore Lagos
             <span aria-hidden="true">↗</span>
@@ -53,17 +70,21 @@ export function SiteHeader() {
 
       <nav
         aria-label="Mobile navigation"
-        className="flex gap-6 overflow-x-auto border-t border-[var(--brand-sand)]/50 px-5 py-3 xl:hidden sm:px-8"
+        className="flex gap-6 overflow-x-auto border-t border-[var(--brand-sand)]/50 px-5 py-2 xl:hidden sm:px-8"
       >
-        {navigation.map((item) => (
-          <Link
-            key={item.label}
-            href={item.href}
-            className="shrink-0 text-[11px] font-medium text-[var(--brand-charcoal)] transition-colors hover:text-[var(--brand-orange)]"
-          >
-            {item.label}
-          </Link>
-        ))}
+        {navigation.map((item) => {
+          const active = isCurrentPage(pathname, item.href);
+          return (
+            <Link
+              key={item.label}
+              href={item.href}
+              aria-current={active ? "page" : undefined}
+              className="journal-nav-link journal-nav-link--mobile shrink-0 text-[11px] font-medium"
+            >
+              {item.label}
+            </Link>
+          );
+        })}
       </nav>
     </header>
   );

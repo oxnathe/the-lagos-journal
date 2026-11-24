@@ -104,7 +104,7 @@
 
 html {
   min-height: 100%;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scroll-padding-top: 6rem;
 }
 
@@ -166,5 +166,394 @@ video {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* ==========================================
+   THE LAGOS JOURNAL — ROUTE LOADING SCREEN
+========================================== */
+
+.journal-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  place-items: center;
+  padding: 2rem;
+  overflow: hidden;
+  background: var(--brand-navy);
+  color: var(--brand-white);
+}
+
+.journal-loading__content {
+  width: 100%;
+  max-width: 36rem;
+  text-align: center;
+  animation: journal-loading-appear 600ms ease-out both;
+}
+
+.journal-loading__title {
+  margin: 0;
+  color: var(--brand-white);
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+.journal-loading__indicator {
+  width: 5rem;
+  height: 2px;
+  margin: 1.75rem auto 1.25rem;
+  overflow: hidden;
+  background: rgb(255 255 255 / 15%);
+}
+
+.journal-loading__indicator span {
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: var(--brand-gold);
+  animation: journal-loading-progress 1.3s ease-in-out infinite;
+}
+
+.journal-loading__tagline {
+  margin: 0;
+  color: var(--brand-sand);
+  font-family: var(--font-manrope), Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+@keyframes journal-loading-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes journal-loading-progress {
+  0% {
+    transform: translateX(-110%);
+  }
+
+  100% {
+    transform: translateX(260%);
+  }
+}
+
+/* THE LAGOS JOURNAL — CINEMATIC NAVIGATION */
+
+.journal-nav-link {
+  position: relative;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--brand-charcoal);
+  transition: color 300ms ease;
+}
+
+.journal-nav-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  left: 0;
+  height: 2px;
+  background: var(--brand-gold);
+  box-shadow: 0 0 10px rgb(176 141 87 / 35%);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.journal-nav-link:hover,
+.journal-nav-link[aria-current="page"] {
+  color: var(--brand-gold);
+}
+
+.journal-nav-link:hover::after,
+.journal-nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.journal-nav-link--mobile::after {
+  bottom: 0;
+}
+
+.journal-nav-action[aria-current="page"] {
+  background: var(--brand-gold);
+  color: var(--brand-navy);
+  box-shadow: 0 0 0 1px rgb(176 141 87 / 35%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journal-nav-link,
+  .journal-nav-link::after {
+    transition: none;
+  }
+}
+
+/* THE LAGOS JOURNAL — LIQUID WATER NAVIGATION */
+
+.journal-nav-link[aria-current="page"] {
+  color: transparent !important;
+  background-image:
+    linear-gradient(
+      105deg,
+      #e8fcff 0%,
+      #65d7e9 15%,
+      #ffffff 27%,
+      #168da9 42%,
+      #d9fbff 56%,
+      #45bfd4 70%,
+      #f7ffff 84%,
+      #68d6e7 100%
+    );
+  background-size: 240% 100%;
+  background-position: 0% 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 4px rgb(48 184 210 / 25%));
+  animation: journal-liquid-flow 4s linear infinite;
+}
+
+.journal-nav-link[aria-current="page"]::after {
+  background: linear-gradient(
+    90deg,
+    #168da9,
+    #e8fcff,
+    #45bfd4,
+    #ffffff,
+    #168da9
+  );
+  background-size: 220% 100%;
+  box-shadow:
+    0 0 5px rgb(69 191 212 / 45%),
+    0 0 12px rgb(69 191 212 / 20%);
+  animation: journal-water-ripple 3s ease-in-out infinite;
+}
+
+@keyframes journal-liquid-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 240% 50%;
+  }
+}
+
+@keyframes journal-water-ripple {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.75;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journal-nav-link[aria-current="page"],
+  .journal-nav-link[aria-current="page"]::after {
+    animation: none;
+  }
+
+  .journal-nav-link[aria-current="page"] {
+    background-position: 50% 50%;
+  }
+}
+
+/* THE LAGOS JOURNAL — ANIMATED BRAND BORDER */
+
+.journal-nav-action {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  background: var(--brand-navy);
+  color: var(--brand-white);
+  box-shadow: 0 3px 14px rgb(23 35 45 / 15%);
+  transition:
+    transform 350ms ease,
+    box-shadow 350ms ease;
+}
+
+.journal-nav-action::before {
+  position: absolute;
+  z-index: -2;
+  inset: -150%;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    #17232D,
+    #B08D57,
+    #F7F4ED,
+    #E87532,
+    #FF1F1F,
+    #343A40,
+    #FFFFFF,
+    #D9D0C1,
+    #17232D
+  );
+  content: "";
+  animation: journal-brand-orbit 7s linear infinite;
+}
+
+.journal-nav-action::after {
+  position: absolute;
+  z-index: -1;
+  inset: 2px;
+  border-radius: inherit;
+  background: var(--brand-navy);
+  content: "";
+  transition: background 300ms ease;
+}
+
+.journal-nav-action:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 5px 22px rgb(176 141 87 / 25%),
+    0 0 18px rgb(232 117 50 / 12%);
+}
+
+.journal-nav-action:hover::after {
+  background: #263640;
+}
+
+.journal-nav-action[aria-current="page"] {
+  color: var(--brand-white);
+}
+
+@keyframes journal-brand-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journal-nav-action::before {
+    animation: none;
+  }
+
+  .journal-nav-action {
+    transition: none;
+  }
+}
+
+/* THE LAGOS JOURNAL — FLOWING BRAND GRADIENT AND NAV BOUNCE */
+
+/* Full animated colour movement inside Explore Lagos */
+.journal-nav-action {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--brand-navy);
+  color: var(--brand-white);
+  text-shadow: 0 1px 3px rgb(23 35 45 / 55%);
+  transition:
+    transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 350ms ease;
+}
+
+.journal-nav-action::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(
+      120deg,
+      rgb(23 35 45 / 48%),
+      rgb(23 35 45 / 18%),
+      rgb(23 35 45 / 42%)
+    ),
+    linear-gradient(
+      120deg,
+      #17232D,
+      #B08D57,
+      #F7F4ED,
+      #E87532,
+      #FF1F1F,
+      #343A40,
+      #FFFFFF,
+      #D9D0C1,
+      #17232D
+    );
+  background-size: 100% 100%, 350% 350%;
+  background-position: 0 0, 0% 50%;
+  content: "";
+  animation: journal-inner-colour-flow 7s ease-in-out infinite;
+}
+
+.journal-nav-action::after {
+  display: none;
+}
+
+.journal-nav-action:hover,
+.journal-nav-action:focus-visible {
+  transform: translateY(-4px) scale(1.025);
+  box-shadow:
+    0 8px 22px rgb(176 141 87 / 25%),
+    0 0 18px rgb(232 117 50 / 18%);
+}
+
+@keyframes journal-inner-colour-flow {
+  0% {
+    background-position: 0 0, 0% 50%;
+  }
+  50% {
+    background-position: 0 0, 100% 50%;
+  }
+  100% {
+    background-position: 0 0, 0% 50%;
+  }
+}
+
+/* Spring-bounce interaction for every navigation link */
+.journal-nav-link {
+  transition:
+    color 300ms ease,
+    translate 520ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.journal-nav-link:hover,
+.journal-nav-link:focus-visible {
+  translate: 0 -4px;
+}
+
+/* Keep all motion accessible */
+@media (prefers-reduced-motion: reduce) {
+  .journal-nav-action,
+  .journal-nav-link {
+    transition: none;
+  }
+
+  .journal-nav-action::before {
+    animation: none;
+  }
+
+  .journal-nav-action:hover,
+  .journal-nav-action:focus-visible,
+  .journal-nav-link:hover,
+  .journal-nav-link:focus-visible {
+    transform: none;
+    translate: none;
   }
 }
