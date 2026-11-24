@@ -6,19 +6,19 @@ const locations = [
     name: "Ikoyi",
     note: "Established residential character",
     image:
-      "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=900&q=80",
+      "/images/locations/ikoyi.jpg",
   },
   {
     name: "Victoria Island",
     note: "Residential and commercial district",
     image:
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80",
+      "/images/locations/victoria-island.jpg",
   },
   {
     name: "Lekki Phase 1",
     note: "A varied residential landscape",
     image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80",
+      "/images/locations/lekki.jpg",
   },
 ];
 

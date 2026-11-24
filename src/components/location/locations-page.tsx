@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -11,7 +11,7 @@ const locations = [
     description:
       "Discover one of Lagos' most recognised residential destinations, known for its established neighbourhoods, private residences and premium property offerings.",
     image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
+      "/images/locations/ikoyi.jpg",
     number: "01",
   },
   {
@@ -20,7 +20,7 @@ const locations = [
     description:
       "Explore a district where commercial activity, hospitality, residential developments and city life intersect.",
     image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85",
+      "/images/locations/victoria-island.jpg",
     number: "02",
   },
   {
@@ -29,7 +29,7 @@ const locations = [
     description:
       "Explore the Lekki corridor, from established residential communities to newer developments and lifestyle destinations.",
     image:
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85",
+      "/images/locations/lekki.jpg",
     number: "03",
   },
   {
@@ -47,7 +47,7 @@ const locations = [
     description:
       "Explore Lagos Mainland's capital district, with residential, commercial and hospitality opportunities within its wider urban landscape.",
     image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85",
+      "/images/locations/ikeja.jpg",
     number: "05",
   },
   {
@@ -56,7 +56,7 @@ const locations = [
     description:
       "Explore the eastern side of Lagos and discover locations attracting interest in residential development and longer-term property exploration.",
     image:
-      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1200&q=85",
+      "/images/locations/epe.jpg",
     number: "06",
   },
   {
@@ -65,7 +65,7 @@ const locations = [
     description:
       "Discover the historic commercial heart of Lagos, where the city's heritage, markets, business districts and urban character meet.",
     image:
-      "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=85",
+      "/images/locations/lagos-island.jpg",
     number: "07",
   },
   {

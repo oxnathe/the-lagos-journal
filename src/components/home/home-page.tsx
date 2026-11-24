@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -7,22 +7,22 @@ const locations = [
   {
     name: "Ikoyi",
     description: "Refined living and prime residential addresses.",
-    image: "photo-1600607687939-ce8a6c25118c",
+    image: "/images/locations/ikoyi.jpg",
   },
   {
     name: "Victoria Island",
     description: "Business, lifestyle and contemporary city living.",
-    image: "photo-1600607687920-4e2a09cf159d",
+    image: "/images/locations/victoria-island.jpg",
   },
   {
     name: "Lekki",
     description: "A changing landscape of residential opportunities.",
-    image: "photo-1600566753086-00f18fb6b3ea",
+    image: "/images/locations/lekki.jpg",
   },
   {
     name: "Eko Atlantic",
     description: "A distinctive new chapter in Lagos development.",
-    image: "photo-1600607687644-c7171b42498f",
+    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=800&q=85",
   },
 ];
 
@@ -253,7 +253,7 @@ export function HomePage() {
                 >
                   <div className="relative aspect-[4/5] overflow-hidden bg-[var(--brand-sand)]">
                     <Image
-                      src={`https://images.unsplash.com/${location.image}?auto=format&fit=crop&w=800&q=85`}
+                      src={location.image}
                       alt={`Architectural inspiration representing ${location.name}`}
                       fill
                       unoptimized
